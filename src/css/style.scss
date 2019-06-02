@@ -24,4 +24,13 @@ body, .sticky-footer-wrapper {
 
 footer {
 	background-color: $light;
+	font-size: 0.9em;
+
+	.social-logo {
+		font-size: 1.5em;
+
+		&:not(:first-of-type) {
+			padding-left: 0.5em;
+		}
+	}
 }

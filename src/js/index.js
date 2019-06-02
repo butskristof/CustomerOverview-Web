@@ -20,6 +20,7 @@ function loadFirstCustomer() {
 function fillCustomerData(data) {
 	for (const [key, value] of Object.entries(data)) {
 		if (key === "image") {
+			// unfortunately we can't use relative paths, json-server runs at port 3000 <-> webpack/frontend server
 			document.querySelector("#imgCustomer").src = `${restClient.BASE_URL}/${value}`;
 		} else {
 			const element = document.querySelector(`#${key}`); // get corresponding element

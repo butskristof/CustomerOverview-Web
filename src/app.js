@@ -4,3 +4,4 @@ import {} from './js/index';
 import './css/style.scss';
 
 import 'bootstrap';
+import '@fortawesome/fontawesome-free/css/all.css'
