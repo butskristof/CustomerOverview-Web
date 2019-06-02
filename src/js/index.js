@@ -1,11 +1,14 @@
 import * as restClient from "./restclient";
 import * as formHelpers from "./formHelpers";
 import {addNavigationHandlers} from "./navigation";
+import attachFormListener from './validation';
 
 addEventListener("load", init, false);
 
 function init() {
 	addNavigationHandlers();
+	attachFormListener();
+	// loadFirstCustomer();
 }
 
 function loadFirstCustomer() {

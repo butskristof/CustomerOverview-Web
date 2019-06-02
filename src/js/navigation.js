@@ -4,7 +4,8 @@ const links = document.querySelectorAll(".section-link");
 export function addNavigationHandlers() {
 	console.log("Adding navigation handlers.");
 	links.forEach(l => {
-		l.addEventListener("click", e => showSection(e.target), false);
+		l.addEventListener("click", e => showSection(e.target));
+		// event loop is broken by previous statement, so link action won't execute
 	})
 }
 
