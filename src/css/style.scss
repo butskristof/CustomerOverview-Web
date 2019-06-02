@@ -9,6 +9,10 @@ body, .sticky-footer-wrapper {
 	min-height: 100vh;
 }
 
+#section-new, #section-search {
+	display: none;
+}
+
 #alert {
 	display: none;
 }

@@ -1,7 +1,12 @@
 import * as restClient from "./restclient";
 import * as formHelpers from "./formHelpers";
+import {addNavigationHandlers} from "./navigation";
 
-addEventListener("load", loadFirstCustomer, false);
+addEventListener("load", init, false);
+
+function init() {
+	addNavigationHandlers();
+}
 
 function loadFirstCustomer() {
 	console.log("Loading first customer");

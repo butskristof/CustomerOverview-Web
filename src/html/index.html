@@ -17,100 +17,114 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav mr-auto">
 						<li class="nav-item active">
-							<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+							<a class="nav-link section-link" href="#" data-section="home">Home <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">About</a>
+							<a class="nav-link section-link" href="#" id="link-new" data-section="new">New</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link section-link" href="#" id="link-search" data-section="search">Search</a>
 						</li>
 					</ul>
 				</div>
 			</div>
 		</nav>
-<!--	TODO main	-->
 		<main role="main" class="flex-fill">
 			<div class="container">
 				<h1>Customer overview</h1>
 
-				<div class="row">
-					<div class="col-md-4">
-						<img src="https://via.placeholder.com/500" alt="Customer image" class="img-fluid mt-5 mx-auto"
-							 id="imgCustomer">
+				<section id="section-home">
+					<h2>Home</h2>
+				</section>
+
+				<section id="section-new">
+					<h2>New</h2>
+					<div class="row">
+						<div class="col-md-4">
+							<img src="https://via.placeholder.com/500" alt="Customer image" class="img-fluid mt-5 mx-auto"
+								 id="imgCustomer">
+						</div>
+						<div class="col-md-8">
+							<form action="#">
+								<div class="row">
+									<div class="col-md-2">
+										<div class="form-group">
+											<label for="id">ID</label>
+											<input type="number" class="form-control" id="id" placeholder="0">
+										</div>
+									</div>
+									<div class="col-md-5">
+										<div class="form-group">
+											<label for="firstName">First name</label>
+											<input type="text" class="form-control" id="firstName" placeholder="John">
+										</div>
+									</div>
+									<div class="col-md-5">
+										<div class="form-group">
+											<label for="lastName">Last name</label>
+											<input type="text" class="form-control" id="lastName" placeholder="Doe">
+										</div>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="company">Company</label>
+											<input type="text" class="form-control" id="company"
+												   placeholder="Business, inc.">
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="email">Email</label>
+											<input type="email" class="form-control" id="email"
+												   placeholder="john@business.com">
+										</div>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-md-3">
+										<div class="form-group">
+											<label for="callsToServiceLine">Calls to service line</label>
+											<input type="number" class="form-control" id="callsToServiceLine" placeholder="0">
+										</div>
+									</div>
+									<div class="col-md-7">
+										<div class="form-group">
+											<label for="registrationDate">Registration date</label>
+											<input type="date" class="form-control" id="registrationDate"
+												   placeholder="2000-01-01">
+										</div>
+									</div>
+									<div class="col-md-2">
+										<div class="form-group">
+											<label for="isActive">Active</label>
+											<input type="checkbox" class="form-control" id="isActive">
+										</div>
+									</div>
+								</div>
+
+
+								<div class="alert alert-danger my-2" id="alert">
+									<strong>Something went wrong.</strong>
+									<hr>
+									<div id="errors"></div>
+								</div>
+
+								<div class="text-center">
+									<button type="submit" class="btn btn-dark mt-2" id="submit">Submit</button>
+								</div>
+							</form>
+						</div>
 					</div>
-					<div class="col-md-8">
-						<form action="#">
-							<div class="row">
-								<div class="col-md-2">
-									<div class="form-group">
-										<label for="id">ID</label>
-										<input type="number" class="form-control" id="id" placeholder="0">
-									</div>
-								</div>
-								<div class="col-md-5">
-									<div class="form-group">
-										<label for="firstName">First name</label>
-										<input type="text" class="form-control" id="firstName" placeholder="John">
-									</div>
-								</div>
-								<div class="col-md-5">
-									<div class="form-group">
-										<label for="lastName">Last name</label>
-										<input type="text" class="form-control" id="lastName" placeholder="Doe">
-									</div>
-								</div>
-							</div>
+				</section>
 
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<label for="company">Company</label>
-										<input type="text" class="form-control" id="company"
-											   placeholder="Business, inc.">
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<label for="email">Email</label>
-										<input type="email" class="form-control" id="email"
-											   placeholder="john@business.com">
-									</div>
-								</div>
-							</div>
+				<section id="section-search">
+					<h2>Search</h2>
+				</section>
 
-							<div class="row">
-								<div class="col-md-3">
-									<div class="form-group">
-										<label for="callsToServiceLine">Calls to service line</label>
-										<input type="number" class="form-control" id="callsToServiceLine" placeholder="0">
-									</div>
-								</div>
-								<div class="col-md-7">
-									<div class="form-group">
-										<label for="registrationDate">Registration date</label>
-										<input type="date" class="form-control" id="registrationDate"
-											   placeholder="2000-01-01">
-									</div>
-								</div>
-								<div class="col-md-2">
-									<div class="form-group">
-										<label for="isActive">Active</label>
-										<input type="checkbox" class="form-control" id="isActive">
-									</div>
-								</div>
-							</div>
-
-
-							<div class="alert alert-danger my-2" id="alert">
-								<strong>Something went wrong.</strong>
-								<hr>
-								<div id="errors"></div>
-							</div>
-
-							<div class="text-center">
-								<button type="submit" class="btn btn-dark mt-2" id="submit">Submit</button>
-							</div>
-						</form>
-					</div>
-				</div>
 			</div><!-- /container -->
 		</main>
 
