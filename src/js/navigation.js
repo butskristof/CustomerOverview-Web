@@ -9,7 +9,7 @@ export function addNavigationHandlers() {
 		// event loop is broken by previous statement, so link action won't execute
 	});
 
-	showSection(document.querySelector("#link-search")); // TODO remove, only for dev
+	// showSection(document.querySelector("#link-search")); // TODO remove, only for dev
 }
 
 function showSection(link) {

@@ -2,6 +2,10 @@
 @import "mixins";
 @import "functions";
 
+// override bootstrap vars
+$body-bg: colour(background);
+$body-color: colour(dark);
+
 // bootstrap
 @import "~bootstrap/scss/bootstrap";
 
