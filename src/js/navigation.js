@@ -1,11 +1,15 @@
+import {loadSearch} from "./search";
+
 const sections = document.querySelectorAll(".spa-page");
 const links = document.querySelectorAll(".section-link");
 
 export function addNavigationHandlers() {
 	links.forEach(l => {
-		l.addEventListener("click", e => showSection(e.target));
+		l.addEventListener("click", e => showSection(e.target), false);
 		// event loop is broken by previous statement, so link action won't execute
 	});
+
+	showSection(document.querySelector("#link-search")); // TODO remove, only for dev
 }
 
 function showSection(link) {
@@ -24,4 +28,8 @@ function showSection(link) {
 			s.style.display = 'none';
 		}
 	});
+
+	if (name === "search") {
+		loadSearch(); // extra call for loading search page
+	}
 }

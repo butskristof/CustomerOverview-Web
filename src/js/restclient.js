@@ -1,6 +1,21 @@
 export const BASE_URL = "http://localhost:3000";
 export const CUST_URL = "customers";
 
+export function getCustomers() {
+	return fetch(`${BASE_URL}/${CUST_URL}`)
+		.then(response => {
+			if (!response.ok) {
+				throw Error(`unable to GET customers: ${response.status}: ${response.statusText}`);
+			}
+
+			return response.json();
+		})
+		.catch(e => {
+			console.error(e);
+			throw Error(e);
+		})
+}
+
 export function getCustomer(id) {
 	return fetch(`${BASE_URL}/${CUST_URL}/${id}`)
 	.then(response => {
