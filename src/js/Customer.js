@@ -7,7 +7,8 @@ export class Customer {
 		email,
 		callsToServiceLine,
 		registrationDate,
-		isActive
+		isActive,
+		image
 	) {
 		this.id = parseInt(id);
 		this.firstName = firstName;
@@ -17,5 +18,6 @@ export class Customer {
 		this.callsToServiceLine = parseInt(callsToServiceLine);
 		this.registrationDate = registrationDate;
 		this.isActive = isActive;
+		this.image = image
 	}
 }

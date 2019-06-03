@@ -1,4 +1,5 @@
 import {loadSearch} from "./search";
+import {loadHome} from "./home";
 
 const sections = document.querySelectorAll(".spa-page");
 const links = document.querySelectorAll(".section-link");
@@ -9,7 +10,7 @@ export function addNavigationHandlers() {
 		// event loop is broken by previous statement, so link action won't execute
 	});
 
-	// showSection(document.querySelector("#link-search")); // TODO remove, only for dev
+	showSection(document.querySelector("#link-home")); // TODO remove, only for dev
 }
 
 function showSection(link) {
@@ -29,7 +30,14 @@ function showSection(link) {
 		}
 	});
 
-	if (name === "search") {
-		loadSearch(); // extra call for loading search page
+	switch (name) {
+		case "search":
+			loadSearch(); // extra call for loading search page
+			break;
+		case "home":
+			loadHome();
+			break;
+		default:
+			break;
 	}
 }

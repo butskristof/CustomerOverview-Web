@@ -1,3 +1,5 @@
+import {clearElement} from "./helpers";
+
 export function addError(message) {
 	let node = document.createElement("p");
 	node.innerHTML = message;
@@ -7,11 +9,7 @@ export function addError(message) {
 }
 
 export function clearErrors() {
-	// faster than innerHTML = ''
-	let element = document.querySelector("#errors");
-	while (element.firstChild) {
-		element.removeChild(element.firstChild);
-	}
+	clearElement("#errors");
 }
 
 export function showAlert() {

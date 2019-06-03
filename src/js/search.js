@@ -1,6 +1,6 @@
 import {getCustomers} from "./restclient";
 import {Customer} from "./Customer";
-
+import {clearElement} from "./helpers";
 
 export function loadSearch() {
 	loadCustomers();
@@ -17,7 +17,7 @@ function loadCustomers(query = "") {
 			result.forEach(c => customers.push(
 				new Customer(
 					c.id, c.firstName, c.lastName, c.company, c.email,
-					c.callsToServiceLine, c.registrationDate, c.isActive
+					c.callsToServiceLine, c.registrationDate, c.isActive, c.image
 				)
 			));
 
@@ -38,11 +38,7 @@ function loadCustomers(query = "") {
 }
 
 function clearTable() {
-	// faster than innerHTML = ''
-	let element = document.querySelector("#customer-table");
-	while (element.firstChild) {
-		element.removeChild(element.firstChild);
-	}
+	clearElement("#customer-table")
 }
 
 function addCustomersToTable(customers) {
