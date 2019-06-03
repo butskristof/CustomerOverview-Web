@@ -9,32 +9,32 @@ export function loadSearch() {
 	)
 }
 
-function loadCustomers(query = "") {
+async function loadCustomers(query = "") {
 	clearTable();
-	getCustomers()
-		.then(result => {
-			let customers = [];
-			result.forEach(c => customers.push(
-				new Customer(
-					c.id, c.firstName, c.lastName, c.company, c.email,
-					c.callsToServiceLine, c.registrationDate, c.isActive, c.image
-				)
-			));
+	try {
+		const result = await getCustomers();
 
-			if (query) { // only if query not null, undefined or ""
-				customers = customers
-					.filter(c =>
-						c.firstName.toLowerCase().includes(query)
-						|| c.lastName.toLowerCase().includes(query)
-						|| c.company.toLowerCase().includes(query)
-					);
-			}
+		let customers = [];
+		result.forEach(c => customers.push(
+			new Customer(
+				c.id, c.firstName, c.lastName, c.company, c.email,
+				c.callsToServiceLine, c.registrationDate, c.isActive, c.image
+			)
+		));
 
-			addCustomersToTable(customers);
-		})
-		.catch(e => {
-			console.error(e);
-		});
+		if (query) { // only if query not null, undefined or ""
+			customers = customers
+				.filter(c =>
+					c.firstName.toLowerCase().includes(query)
+					|| c.lastName.toLowerCase().includes(query)
+					|| c.company.toLowerCase().includes(query)
+				);
+		}
+
+		addCustomersToTable(customers);
+	} catch(e) {
+		console.error(e);
+	}
 }
 
 function clearTable() {

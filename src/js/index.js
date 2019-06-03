@@ -12,8 +12,6 @@ function init() {
 }
 
 function loadFirstCustomer() {
-	console.log("Loading first customer");
-
 	restClient
 		.getCustomer(0)
 		.then(responseData => {

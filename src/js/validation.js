@@ -1,6 +1,7 @@
 import * as formHelper from "./formHelpers";
 import * as restClient from "./restclient";
 import {validators} from "./validators";
+import {postCustomer} from "./restclient";
 
 export default function setEventListener() {
 	document.querySelector("#submit").addEventListener("click", buttonClicked, false);
@@ -9,7 +10,7 @@ export default function setEventListener() {
 
 const errors = document.querySelector("#errors");
 
-function buttonClicked() {
+async function buttonClicked() {
 	formHelper.hideAlert();
 	formHelper.hideConfirm();
 
@@ -35,14 +36,13 @@ function buttonClicked() {
 	});
 
 	if (errors.childElementCount === 0) { // only post if there are no errors
-		restClient
-			.postCustomer(inputData)
-			.then(responseData => {
-				formHelper.showConfirm();
-			})
-			.catch(e => {
-				formHelper.addError(e.message);
-			})
+		try {
+			const response = await postCustomer(inputData); // postCustomer will throw if something fails
+			formHelper.showConfirm();
+		} catch (e) {
+			console.error(e);
+			formHelper.addError(e.message);
+		}
 	}
 
 }

@@ -6,23 +6,22 @@ export function loadHome() {
 	loadCustomers();
 }
 
-function loadCustomers() {
+async function loadCustomers() {
 	clearCards();
-	getCustomers()
-		.then(result => {
-			let customers = [];
-			result.forEach(c => customers.push(
-				new Customer(
-					c.id, c.firstName, c.lastName, c.company, c.email,
-					c.callsToServiceLine, c.registrationDate, c.isActive, c.image
-				)
-			));
+	try {
+		const result = await getCustomers();
+		let customers = [];
+		result.forEach(c => customers.push(
+			new Customer(
+				c.id, c.firstName, c.lastName, c.company, c.email,
+				c.callsToServiceLine, c.registrationDate, c.isActive, c.image
+			)
+		));
 
-			addCustomerCards(customers);
-		})
-		.catch(e => {
-			console.error(e);
-		});
+		addCustomerCards(customers);
+	} catch (e) {
+		console.error(e);
+	}
 }
 
 function clearCards() {
