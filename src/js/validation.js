@@ -4,7 +4,7 @@ import {validators} from "./validators";
 import {postCustomer} from "./restclient";
 
 export default function setEventListener() {
-	document.querySelector("#submit").addEventListener("click", buttonClicked, false);
+	document.querySelector("#submit").addEventListener("click", buttonClicked);
 	// event loop is broken by previous statement, so link action won't execute
 }
 
