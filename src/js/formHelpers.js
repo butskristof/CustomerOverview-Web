@@ -22,3 +22,11 @@ export function hideAlert() {
 	clearErrors();
 	document.querySelector("#alert").style.display = 'none';
 }
+
+export function showConfirm() {
+	document.querySelector("#post-confirm").style.display = 'block';
+}
+
+export function hideConfirm() {
+	document.querySelector("#post-confirm").style.display = 'none';
+}

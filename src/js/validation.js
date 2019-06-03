@@ -3,7 +3,7 @@ import * as restClient from "./restclient";
 import {validators} from "./validators";
 
 export default function setEventListener() {
-	document.querySelector("#submit").addEventListener("click", buttonClicked);
+	document.querySelector("#submit").addEventListener("click", buttonClicked, false);
 	// event loop is broken by previous statement, so link action won't execute
 }
 
@@ -11,6 +11,7 @@ const errors = document.querySelector("#errors");
 
 function buttonClicked() {
 	formHelper.hideAlert();
+	formHelper.hideConfirm();
 
 	let inputData = {};
 
@@ -20,7 +21,6 @@ function buttonClicked() {
 		if (k === "image") {
 			element = document.querySelector("#imgCustomer");
 			value = element.src;
-			console.log(value);
 		} else if (k === "isActive") {
 			value = element.checked;
 		} else {
@@ -34,22 +34,15 @@ function buttonClicked() {
 		}
 	});
 
-	console.log(inputData);
-
-	if (errors.childElementCount === 0) {
-		console.log("posting");
+	if (errors.childElementCount === 0) { // only post if there are no errors
 		restClient
 			.postCustomer(inputData)
 			.then(responseData => {
-				showConfirm();
+				formHelper.showConfirm();
 			})
 			.catch(e => {
 				formHelper.addError(e.message);
 			})
 	}
 
-}
-
-function showConfirm() {
-	document.querySelector("#post-confirm").style.display = 'block';
 }

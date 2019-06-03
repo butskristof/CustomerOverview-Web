@@ -29,15 +29,16 @@
 				</div>
 			</div>
 		</nav>
+
 		<main role="main" class="flex-fill">
 			<div class="container">
 				<h1>Customer overview</h1>
 
-				<section id="section-home">
+				<section class="spa-page" id="section-home">
 					<h2>Home</h2>
 				</section>
 
-				<section id="section-new">
+				<section class="spa-page" id="section-new">
 					<h2>New</h2>
 					<div class="row">
 						<div class="col-md-4">
@@ -45,7 +46,7 @@
 								 id="imgCustomer">
 						</div>
 						<div class="col-md-8">
-							<div class="alert alert-success" id="post-confirm">
+							<div class="alert alert-success mt-3 mt-sm-auto" id="post-confirm">
 								Successfully added new Customer.
 							</div>
 							<form action="#">
@@ -104,7 +105,10 @@
 									<div class="col-md-2">
 										<div class="form-group">
 											<label for="isActive">Active</label>
-											<input type="checkbox" class="form-control" id="isActive">
+											<div class="form-check">
+												<input type="checkbox" class="form-check-input" id="isActive">
+												<label for="isActive" class="form-check-label">Is active</label>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -124,7 +128,7 @@
 					</div>
 				</section>
 
-				<section id="section-search">
+				<section class="spa-page" id="section-search">
 					<h2>Search</h2>
 				</section>
 
@@ -132,15 +136,13 @@
 		</main>
 
 		<footer class="footer mt-5 py-3">
-			<div class="container clearfix">
-				<div class="float-left">
-					<p>
+			<div class="container d-flex align-items-center py-1">
+				<div class="mr-auto">
 						&copy; 2019 Kristof Buts <br>
 						Nationalestraat 5 - 2000 Antwerpen
-					</p>
 				</div>
 
-				<div class="float-right">
+				<div class="ml-auto">
 					<i class="fab fa-facebook-square social-logo"></i>
 					<i class="fab fa-twitter-square social-logo"></i>
 					<i class="fab fa-instagram social-logo"></i>
