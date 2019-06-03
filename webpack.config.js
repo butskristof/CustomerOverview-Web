@@ -32,6 +32,6 @@ module.exports = {
         contentBase: __dirname + "/dist",
         watchContentBase: true,
         compress: true,
-        port: 9001 // TODO reset to 9000
+        port: 9000
     }
 };
